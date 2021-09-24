@@ -1,0 +1,9 @@
+module.exports=(req,res)=>{
+   //删除session
+   req.session.destroy(function(){
+      res.clearCookie('connect.sid');
+      res.redirect('/admin/login');
+      //清除模板信息
+      req.app.locals.userInfo=null;
+   })
+}
